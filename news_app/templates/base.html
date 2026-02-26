@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="primary-header">
+            <div class="container">
+                <nav>
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Contact us</a>
+                </nav>
+                <nav>
+                    <div class="header-inner">
+                    <a href="#">
+                        <img src="{% static './img/twitter.jpg'%}" alt="">
+                    </a>
+                    <a href="#">
+                        <img src="{% static './img/reddit.png' %}" alt="">
+                    </a>
+                    <a href="#">
+                        <img src="{% static './img/pinterest.png' %}" alt="">
+                    </a>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="second-header">
+                <div class="container-fluid">
+                    <div class="header-inner">
+                        <a href=" {% url 'admin:index' %}">
+                            <img src="{% static './img/user.png' %}">
+                            <span>Login</span>
+                        </a>
+                        <a href="#" class="logo">
+                            <img src="{% static './img/logo.png' %}">
+                        </a>
+                        <a href="#">
+                            <img src="{% static './img/phone.png' %}">
+                            <span>+7-777-112-23-33</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="third-header">
+                <div class="container-fluid">
+                    <div class="header-inner">
+                    <nav>
+                        <a href="{% url 'all_news_page' %}">All news</a>
+
+                        {% for category in categories %}
+                        <a href="{% url 'news_by_category' pk=category.pk %}">{{category.name}}</a>
+                        {% endfor %}
+                    </nav>
+                    <a href="{% url 'search_page'%}">
+                        <img src="{% static './img/search.png' %}">
+                        <span>Search</span>
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="container">
+        {% block content %}
+        {% endblock%}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+
+            <a href="#" >
+                <img src="{% static './img/logo reverse.png' %}" height="50px">
+            </a>
+            <p>&copy; 2026 TOO Frogs news</p>
+
+        </div>
+    </footer>
+</body>
+</html>
