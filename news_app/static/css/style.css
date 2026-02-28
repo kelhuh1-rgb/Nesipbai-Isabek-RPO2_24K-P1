@@ -169,7 +169,7 @@ a{
     padding: 23px;
 }
 .news-adv_img {
-    width: 300px;
+    width: 100%;
     height: 240px;
     object-fit:cover;
     border-radius: 30px;
@@ -208,7 +208,7 @@ form button{
 }
 
 .alert-danger{
-    background-color: #830101 ;
+    background-color: var(--danger);
     border-radius: 30px;
     display: flex;
     flex-direction: column;
@@ -245,4 +245,103 @@ form button{
 .footer a{
     margin-bottom: 21px;
 }
+.footer .header-inner{
+    display: none;
+}
 /*footer*/
+
+@media (max-width: 1024px) {
+
+    .Hot-news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .news-block .container-fluid {
+        grid-template-columns: 1fr;
+    }
+
+    .news-block_adv {
+        order: -1;
+        margin-bottom: 30px;
+    }
+
+    .header-inner img {
+        height: 40px;
+    }
+
+    .primary-header a,
+    .second-header a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+    margin-right: 50px;
+    margin-left: 50px;
+    }
+
+    .third-header .header-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .third-header .header-inner nav {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .primary-header nav {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .primary-header .header-inner img{
+        display: none;
+    }
+
+    .second-header .header-inner {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .Hot-news-item {
+        height: 220px;
+        border-radius: 20px;
+    }
+
+    .hot-news h1 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+
+    .news-block_card {
+        grid-template-columns: 1fr;
+    }
+
+    .news-block_img {
+        width: 100%;
+        height: 200px;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .news-block_info {
+        border-radius: 0 0 20px 20px;
+    }
+
+    .news-block h3 {
+        font-size: 24px;
+    }
+    .footer .header-inner{
+        margin-top: 20px;
+    display: block;
+}
+}
+
